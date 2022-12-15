@@ -42,8 +42,11 @@ $('.saveBtn').click(function(){
   } 
 )
 
-//code to display current date in top of website. Format Do is not working 
-$('#currentDay').text(currentDay.format('dddd, MMM Do'))
+//code to display current date in top of website. 
+$('#currentDay').text(currentDay.format('dddd, MMM D'))
+
+//Format Do is not working 
+//$('#currentDay').text(currentDay.format('dddd, MMM Do'))
 
 }
 

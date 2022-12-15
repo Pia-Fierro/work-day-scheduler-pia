@@ -4,6 +4,7 @@ var presentTime = dayjs().hour();
 console.log (presentTime)
 var schedule = $(this).parent().children(".schedule").val();
 
+//Code wrap in one fuction
 function init () {
 
 //compare current time and time of task:add class past, present and future to time block 

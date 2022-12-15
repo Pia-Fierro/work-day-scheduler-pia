@@ -1,19 +1,26 @@
 
-  
-// Show current day on header :format Do to show date ordinality not working
 var currentDay = dayjs();
+var presentTime = dayjs().hour();
+console.log (presentTime)
 var schedule = $(this).parent().children(".schedule").val();
 
 function init () {
 
-
-//current time frame and hour
-
-
 //compare current time and time of task:add class past, present and future to time block 
+$('.time-block').each(function (){
+  var hourDiv =parseInt($(this).attr("id"));
+  console.log(hourDiv);
 
+  if (hourDiv === presentTime) {
+    $(this).addClass('present');
+  } else if (hourDiv > presentTime) {
+      $(this).addClass('future');
+    } else {
+      $(this).addClass('past'); 
+    }
+  });
 
-// render saved schedule task present in local storage if it exist 
+// render saved schedule task saved in local storage if it exist 
 $('.time-block').each(function () {
   var id = $(this).attr("id");
   var schedule = localStorage.getItem(id);
@@ -21,12 +28,10 @@ $('.time-block').each(function () {
     $(this).children(".description").val(schedule);
   }
     else {
-      $(this).children(".description").val()
+      $(this).children(".description").val();
     }
-  
   }
 );
-
 
 //time and schedule task is save in local storage when clicking save button 
 
@@ -37,8 +42,9 @@ $('.saveBtn').click(function(){
   } 
 )
 
-//code to display current date in top of website  
+//code to display current date in top of website. Format Do is not working 
 $('#currentDay').text(currentDay.format('dddd, MMM Do'))
 
 }
+
 init();
